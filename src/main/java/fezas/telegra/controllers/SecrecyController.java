@@ -35,7 +35,7 @@ public class SecrecyController implements Initializable {
     private static Integer idRecord = 0;
     SecrecyDAO secrecyDAO = SecrecyDAO.getInstance();
     @FXML
-    private TableColumn<Secrecy, String> secrecyColumn;
+    private TableColumn<Secrecy, String> columnSecrecyName, columnSecrecyShortName;
 
     @FXML
     private Button closeButton;
@@ -130,6 +130,7 @@ public class SecrecyController implements Initializable {
                                 @Override
                                 public void handle(ActionEvent event) {
                                     textFieldSecrecyName.setText(row.getItem().getSecrecyName());
+                                    textFieldSecrecyShortName.setText(row.getItem().getSecrecyShortName());
                                     idRecord = row.getItem().getSecerecyId();
                                 }
                             });
@@ -167,7 +168,9 @@ public class SecrecyController implements Initializable {
 
 
             // устанавливаем тип и значение которое должно хранится в колонке
-            secrecyColumn.setCellValueFactory(new PropertyValueFactory<Secrecy, String>("secrecyName"));
+            columnSecrecyName.setCellValueFactory(new PropertyValueFactory<Secrecy, String>("secrecyName"));
+            columnSecrecyShortName.setCellValueFactory(new PropertyValueFactory<Secrecy, String>("secrecyShortName"));
+
             // заполняем таблицу данными
             tableSecrecy.setItems(usersData);
         } catch (Exception throwables) {

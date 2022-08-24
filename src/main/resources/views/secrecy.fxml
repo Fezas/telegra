@@ -14,9 +14,10 @@
 
 <AnchorPane prefHeight="325.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.SecrecyController">
    <children>
-      <TableView fx:id="tableSecrecy" prefHeight="175.0" prefWidth="600.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <TableView fx:id="tableSecrecy" prefHeight="175.0" prefWidth="480.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columns>
-          <TableColumn id="secrecyColumn" fx:id="secrecyColumn" minWidth="500.0" prefWidth="500.0" text="Наименование грифа секретности" />
+          <TableColumn id="secrecyColumn" fx:id="columnSecrecyName" minWidth="100.0" prefWidth="395.0" resizable="false" text="Наименование грифа секретности" />
+            <TableColumn fx:id="columnSecrecyShortName" prefWidth="84.0" resizable="false" text="Сокращение" />
         </columns>
       </TableView>
       <TextField fx:id="textFieldSecrecyName" layoutX="133.0" layoutY="217.0" prefHeight="25.0" prefWidth="357.0" AnchorPane.bottomAnchor="83.0" AnchorPane.rightAnchor="10.0" />
