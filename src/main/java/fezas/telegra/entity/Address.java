@@ -1,7 +1,11 @@
 package fezas.telegra.entity;
 
 import javafx.scene.control.CheckBox;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Address {
     private Integer tlgAddressId;
     private String tlgAddressCallsign;
@@ -23,54 +27,6 @@ public class Address {
 
     public Address() {
 
-    }
-
-    public Integer getTlgAddressId() {
-        return tlgAddressId;
-    }
-
-    public String getTlgAddressCallsign() {
-        return tlgAddressCallsign;
-    }
-
-    public String getTlgAddressName() {
-        return tlgAddressName;
-    }
-
-    public String getTlgAddressPerson() {
-        return tlgAddressPerson;
-    }
-
-    public String getTlgAddressPersonRespect() {
-        return tlgAddressPersonRespect;
-    }
-
-    public CheckBox getRemark() {
-        return remark;
-    }
-
-    public void setTlgAddressId(Integer tlgAddressId) {
-        this.tlgAddressId = tlgAddressId;
-    }
-
-    public void setTlgAddressCallsign(String tlgAddressCallsign) {
-        this.tlgAddressCallsign = tlgAddressCallsign;
-    }
-
-    public void setTlgAddressName(String tlgAddressName) {
-        this.tlgAddressName = tlgAddressName;
-    }
-
-    public void setTlgAddressPerson(String tlgAddressPerson) {
-        this.tlgAddressPerson = tlgAddressPerson;
-    }
-
-    public void setTlgAddressPersonRespect(String tlgAddressPersonRespect) {
-        this.tlgAddressPersonRespect = tlgAddressPersonRespect;
-    }
-
-    public void setRemark(CheckBox remark) {
-        this.remark = remark;
     }
 
     @Override
