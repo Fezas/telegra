@@ -41,7 +41,7 @@ public class SecrecyController implements Initializable {
     private Button closeButton;
 
     @FXML
-    private TextField inputSecrecy;
+    private TextField textFieldSecrecyName, textFieldSecrecyShortName;
 
     @FXML
     private TableView<Secrecy> tableSecrecy;
@@ -49,6 +49,10 @@ public class SecrecyController implements Initializable {
     @FXML
     private Button saveButton;
 
+    private void textFieldClear() {
+        textFieldSecrecyName.clear();
+        textFieldSecrecyShortName.clear();
+    }
 
     private void showAlertUpdate(String name, Secrecy secrecy) {
         SecrecyDAO secrecyDAO = SecrecyDAO.getInstance();
@@ -61,7 +65,8 @@ public class SecrecyController implements Initializable {
 
         } else if (option.get() == ButtonType.OK) {
             secrecyDAO.update(secrecy);
-            inputSecrecy.clear();
+            logger.info("INFO: Уровень секретности " + secrecy.getSecrecyName() + " обновлен");
+            textFieldClear();
             initData();
             mainController.initData();
             tableSecrecy.refresh();
@@ -74,15 +79,16 @@ public class SecrecyController implements Initializable {
     }
     @FXML
     private void saveSecrecy(ActionEvent event) {
-        String inputSec = inputSecrecy.getText();
         Secrecy secrecy = new Secrecy();
-        secrecy.setSecrecyName(inputSec);
+        secrecy.setSecrecyName(textFieldSecrecyName.getText());
+        secrecy.setSecrecyShortName(textFieldSecrecyShortName.getText());
         if (idRecord!=0) {
             secrecy.setSecerecyId(idRecord);
-            showAlertUpdate(inputSec, secrecy);
+            showAlertUpdate(textFieldSecrecyName.getText(), secrecy);
         } else  {
             secrecyDAO.save(secrecy);
-            inputSecrecy.clear();
+            logger.info("INFO: Уровень секретности " + secrecy.getSecrecyName() + " создан");
+            textFieldClear();
             initData();
             tableSecrecy.refresh();
             mainController.initData();
@@ -98,10 +104,12 @@ public class SecrecyController implements Initializable {
         try {
             initData();
             ValidatorTelegra validatorTelegra = new ValidatorTelegra();
-            validatorTelegra.textFieldLenght(inputSecrecy,26);
+            validatorTelegra.textFieldLenght(textFieldSecrecyName,26);
+            validatorTelegra.textFieldLenght(textFieldSecrecyShortName,3);
             //кнопка сохранить активна если все поля заполнены
             saveButton.disableProperty().bind(
-                    Bindings.isEmpty(inputSecrecy.textProperty())
+                    Bindings.isEmpty(textFieldSecrecyName.textProperty())
+                            .or(Bindings.isEmpty(textFieldSecrecyShortName.textProperty()))
             );
             tableSecrecy.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -121,7 +129,7 @@ public class SecrecyController implements Initializable {
                             editItem.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
-                                    inputSecrecy.setText(row.getItem().getSecrecyName());
+                                    textFieldSecrecyName.setText(row.getItem().getSecrecyName());
                                     idRecord = row.getItem().getSecerecyId();
                                 }
                             });
@@ -170,7 +178,7 @@ public class SecrecyController implements Initializable {
         usersData.clear();
         var secreciess = SecrecyDAO.getInstance().findAll();
         for (Secrecy secrecy : secreciess) {
-            usersData.add(new Secrecy(secrecy.getSecerecyId(), secrecy.getSecrecyName()));
+            usersData.add(new Secrecy(secrecy.getSecerecyId(), secrecy.getSecrecyName(), secrecy.getSecrecyShortName()));
             secrecyMap.put(secrecy.getSecerecyId(), secrecy.getSecrecyName());
         }
     }

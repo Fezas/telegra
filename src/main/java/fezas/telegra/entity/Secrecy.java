@@ -11,11 +11,12 @@ import lombok.Setter;
 @Setter
 public class Secrecy {
     Integer secerecyId;
-    String secrecyName;
+    String secrecyName, secrecyShortName;
 
-    public Secrecy(Integer secerecyId, String secrecyName) {
+    public Secrecy(Integer secerecyId, String secrecyName, String secrecyShortName) {
         this.secerecyId = secerecyId;
         this.secrecyName = secrecyName;
+        this.secrecyShortName = secrecyShortName;
     }
 
     public Secrecy() {

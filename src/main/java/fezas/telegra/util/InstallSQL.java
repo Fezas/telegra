@@ -10,18 +10,23 @@ public class InstallSQL {
             (
                 TLG_SECRECY_ID   INTEGER auto_increment,
                 TLG_SECRECY_NAME VARCHAR(26) not null,
+                TLG_SECRECY_SHORT_NAME VARCHAR(3) not null,
                 constraint PK_TLG_SECRECY
                     primary key (TLG_SECRECY_ID)
             );
                     
-            comment on table TLG_SECRECY is 'Особенности телеграмм по назначению, способу оформления, подачи или доставки.';
+            comment on table TLG_SECRECY is 'Гриф секретности.';
+            comment on column TLG_SECRECY.TLG_SECRECY_NAME is 'Наименование грифа секретности.';
+            comment on column TLG_SECRECY.TLG_SECRECY_SHORT_NAME is 'Сокращенное наименование грифа секретности.';
                     
             create unique index TLG_SECRECY_PK
                 on TLG_SECRECY (TLG_SECRECY_ID);
                     
-            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME) VALUES ('Не секретно');
-            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME) VALUES ('ДСП');
-            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME) VALUES ('Секретно');     
+            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME, TLG_SECRECY_SHORT_NAME) VALUES ('Не секретно', 'НС');
+            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME, TLG_SECRECY_SHORT_NAME) VALUES ('ДСП', 'ДСП');
+            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME, TLG_SECRECY_SHORT_NAME) VALUES ('Секретно', 'С');
+            INSERT INTO PUBLIC.TLG_SECRECY (TLG_SECRECY_NAME, TLG_SECRECY_SHORT_NAME) VALUES ('Совершенно секретно', 'СС');
+                 
             create table TLG_CATEGORY
             (
                 TLG_CATEGORY_ID          INTEGER auto_increment,

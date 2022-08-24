@@ -22,12 +22,13 @@ public class SecrecyDAO implements Dao<Integer, Secrecy> {
             WHERE tlg_secrecy_id = ?
             """;
     private static final String SAVE_SQL = """
-            INSERT INTO tlg_secrecy (tlg_secrecy_name) 
-            VALUES (?);
+            INSERT INTO tlg_secrecy (tlg_secrecy_name, tlg_secrecy_short_name) 
+            VALUES (?, ?);
             """;
     private static final String FIND_ALL_SQL = """
             SELECT tlg_secrecy_id,
-                tlg_secrecy_name 
+                tlg_secrecy_name,
+                tlg_secrecy_short_name 
             FROM tlg_secrecy
             """;
     private static final String FIND_BY_ID_SQL = FIND_ALL_SQL + """
@@ -35,7 +36,8 @@ public class SecrecyDAO implements Dao<Integer, Secrecy> {
             """;
     private static final String UPDATE_SQL = """
             UPDATE tlg_secrecy
-            SET tlg_secrecy_name = ?
+            SET tlg_secrecy_name = ?,
+            tlg_secrecy_short_name = ?
             WHERE tlg_secrecy_id = ?
             """;
     private SecrecyDAO() {
@@ -55,6 +57,7 @@ public class SecrecyDAO implements Dao<Integer, Secrecy> {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, secrecy.getSecrecyName());
+            preparedStatement.setString(2, secrecy.getSecrecyShortName());
             preparedStatement.executeUpdate();
             var generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -71,7 +74,8 @@ public class SecrecyDAO implements Dao<Integer, Secrecy> {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(UPDATE_SQL)) {
             preparedStatement.setString(1, secrecy.getSecrecyName());
-            preparedStatement.setInt(2, secrecy.getSecerecyId());
+            preparedStatement.setString(2, secrecy.getSecrecyShortName());
+            preparedStatement.setInt(3, secrecy.getSecerecyId());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throw new DaoException(throwables);
@@ -116,7 +120,8 @@ public class SecrecyDAO implements Dao<Integer, Secrecy> {
     private Secrecy buildSecrecy(ResultSet resultSet) throws SQLException {
         return new Secrecy(
                 resultSet.getInt("tlg_secrecy_id"),
-                resultSet.getString("tlg_secrecy_name")
+                resultSet.getString("tlg_secrecy_name"),
+                resultSet.getString("tlg_secrecy_short_name")
         );
     }
 }

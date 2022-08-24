@@ -52,6 +52,7 @@ public class TypeInTlgDAO {
                 category.tlg_category_name,
                 category.tlg_category_description,
                 secrecy.tlg_secrecy_name,
+                secrecy.tlg_secrecy_short_name,
                 supervisor.tlg_supervisor_position,
                 supervisor.tlg_supervisor_lastname,
                 supervisor.tlg_supervisor_telephone,
@@ -156,7 +157,8 @@ public class TypeInTlgDAO {
         );
         var secrecy = new Secrecy(
                 resultSet.getInt("tlg_secrecy_id"),
-                resultSet.getString("tlg_secrecy_name")
+                resultSet.getString("tlg_secrecy_name"),
+                resultSet.getString("tlg_secrecy_short_name")
         );
         var rank = new Rank(
                 resultSet.getInt("id"),

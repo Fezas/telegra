@@ -12,18 +12,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.SecrecyController">
+<AnchorPane prefHeight="325.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.SecrecyController">
    <children>
       <TableView fx:id="tableSecrecy" prefHeight="175.0" prefWidth="600.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columns>
           <TableColumn id="secrecyColumn" fx:id="secrecyColumn" minWidth="500.0" prefWidth="500.0" text="Наименование грифа секретности" />
         </columns>
       </TableView>
-      <TextField fx:id="inputSecrecy" layoutX="133.0" layoutY="224.0" prefHeight="25.0" prefWidth="357.0" AnchorPane.bottomAnchor="51.0" AnchorPane.rightAnchor="10.0" />
-      <Label layoutX="10.0" layoutY="228.0" prefHeight="17.0" prefWidth="126.0" text="Гриф секретности" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0" />
-      <Label layoutX="10.0" layoutY="191.0" text="Добавление новой / Редактирование записи" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="10.0" />
-      <Separator layoutX="10.0" layoutY="210.0" prefHeight="4.0" prefWidth="580.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="textFieldSecrecyName" layoutX="133.0" layoutY="217.0" prefHeight="25.0" prefWidth="357.0" AnchorPane.bottomAnchor="83.0" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="10.0" layoutY="253.0" prefHeight="17.0" prefWidth="126.0" text="Гриф секретности" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="10.0" layoutY="190.0" text="Добавление новой / Редактирование записи" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="10.0" />
+      <Separator layoutX="10.0" layoutY="209.0" prefHeight="4.0" prefWidth="580.0" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
       <Button fx:id="closeButton" cancelButton="true" layoutX="470.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="120.0" text="Выход" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
       <Button id="saveButton" fx:id="saveButton" disable="true" layoutX="339.0" layoutY="265.0" mnemonicParsing="false" onAction="#saveSecrecy" prefWidth="120.0" text="Сохранить" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="141.0" />
+      <TextField fx:id="textFieldSecrecyShortName" layoutX="133.0" layoutY="249.0" prefHeight="25.0" prefWidth="357.0" />
+      <Label layoutX="10.0" layoutY="221.0" prefHeight="17.0" prefWidth="126.0" text="Гриф секретности" />
    </children>
 </AnchorPane>

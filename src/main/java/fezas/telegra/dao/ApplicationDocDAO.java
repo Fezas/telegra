@@ -43,7 +43,8 @@ public class ApplicationDocDAO implements Dao<Long, ApplicationDoc> {
                 app_exe,
                 app_numb,
                 secrecy.tlg_secrecy_id,
-                secrecy.tlg_secrecy_name 
+                secrecy.tlg_secrecy_name,
+                secrecy.tlg_secrecy_short_name 
             FROM tlg_application
             JOIN tlg_secrecy secrecy 
              ON app_sec = secrecy.tlg_secrecy_id 
@@ -208,7 +209,8 @@ public class ApplicationDocDAO implements Dao<Long, ApplicationDoc> {
     private ApplicationDoc buildApplicationDoc(ResultSet resultSet) throws SQLException {
         var secrecy = new Secrecy(
                 resultSet.getInt("tlg_secrecy_id"),
-                resultSet.getString("tlg_secrecy_name")
+                resultSet.getString("tlg_secrecy_name"),
+                resultSet.getString("tlg_secrecy_short_name")
         );
         return new ApplicationDoc(
                 resultSet.getLong("app_id"),
