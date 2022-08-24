@@ -22,17 +22,17 @@ public class PropertyAppDAO implements Dao<Long, PropertyApp> {
             WHERE id_user = ?
             """;
     private static final String SAVE_SQL = """
-            INSERT INTO property (id_user, path_pdf, path_tlg, path_tmp, path_doc, min_strings_on_new_page, number_computer) 
-            VALUES (?, ?, ?, ?, ?);
+            INSERT INTO property (id_user, path_pdf, path_tlg, path_doc, min_strings_on_new_page, number_computer, service) 
+            VALUES (?, ?, ?, ?, ?, ?, ?);
             """;
     private static final String FIND_ALL_SQL = """
             SELECT id_user,
                 path_pdf,
                 path_tlg,
-                path_tmp,
                 path_doc,
                 min_strings_on_new_page,
-                number_computer
+                number_computer,
+                service
             FROM property
             """;
     private static final String FIND_BY_ID_SQL = FIND_ALL_SQL + """
@@ -42,10 +42,10 @@ public class PropertyAppDAO implements Dao<Long, PropertyApp> {
             UPDATE property
             SET path_pdf = ?,
             path_tlg = ?,
-            path_tmp = ?,
             path_doc = ?,
             min_strings_on_new_page = ?,
-            number_computer = ?
+            number_computer = ?,
+            service = ?
             WHERE id_user = ?
             """;
     private PropertyAppDAO() {
@@ -70,10 +70,10 @@ public class PropertyAppDAO implements Dao<Long, PropertyApp> {
             preparedStatement.setLong(1, propertyApp.getIdUser());
             preparedStatement.setString(2, propertyApp.getPathPDF());
             preparedStatement.setString(3, propertyApp.getPathTLG());
-            preparedStatement.setString(4, propertyApp.getPathTMP());
-            preparedStatement.setString(5, propertyApp.getPathDOC());
-            preparedStatement.setInt(6, propertyApp.getMinStringsOnNewPage());
-            preparedStatement.setString(7, propertyApp.getNumberComputer());
+            preparedStatement.setString(4, propertyApp.getPathDOC());
+            preparedStatement.setInt(5, propertyApp.getMinStringsOnNewPage());
+            preparedStatement.setString(6, propertyApp.getNumberComputer());
+            preparedStatement.setString(7, propertyApp.getService());
             preparedStatement.executeUpdate();
             return propertyApp;
         } catch (SQLException throwables) {
@@ -87,10 +87,10 @@ public class PropertyAppDAO implements Dao<Long, PropertyApp> {
              var preparedStatement = connection.prepareStatement(UPDATE_SQL)) {
             preparedStatement.setString(1, propertyApp.getPathPDF());
             preparedStatement.setString(2, propertyApp.getPathTLG());
-            preparedStatement.setString(3, propertyApp.getPathTMP());
-            preparedStatement.setString(4, propertyApp.getPathDOC());
-            preparedStatement.setInt(5, propertyApp.getMinStringsOnNewPage());
-            preparedStatement.setString(6, propertyApp.getNumberComputer());
+            preparedStatement.setString(3, propertyApp.getPathDOC());
+            preparedStatement.setInt(4, propertyApp.getMinStringsOnNewPage());
+            preparedStatement.setString(5, propertyApp.getNumberComputer());
+            preparedStatement.setString(6, propertyApp.getService());
             preparedStatement.setLong(7, propertyApp.getIdUser());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
@@ -135,10 +135,10 @@ public class PropertyAppDAO implements Dao<Long, PropertyApp> {
                 resultSet.getLong("id_user"),
                 resultSet.getString("path_pdf"),
                 resultSet.getString("path_tlg"),
-                resultSet.getString("path_tmp"),
                 resultSet.getString("path_doc"),
                 resultSet.getInt("min_strings_on_new_page"),
-                resultSet.getString("number_computer")
+                resultSet.getString("number_computer"),
+                resultSet.getString("service")
         );
     }
 }

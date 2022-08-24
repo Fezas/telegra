@@ -71,7 +71,7 @@ public class CreateDocFromTemplate {
         initalizeTagValue();
         try {
             // 1) Load Docx file by filling Velocity template engine and cache it to the registry
-            File template = new File(propertyApp.get().getPathTMP() + "\\" + "template01.docx");
+            File template = new File("template\\template01.docx");
             InputStream in = FileUtils.openInputStream(template);
             IXDocReport report = XDocReportRegistry.getRegistry().loadReport(in,TemplateEngineKind.Velocity);
             FieldsMetadata metadata = report.createFieldsMetadata();
@@ -107,13 +107,13 @@ public class CreateDocFromTemplate {
                     tlg.getSupervisor().getPosition() + " " + tlg.getSupervisor().getLastname() + "/" +
                     tlg.getTlgDateGreate();
             QrCodeCreateUtil qrCodeCreateUtil = new QrCodeCreateUtil();
-            File tmpQrFile = new File(propertyApp.get().getPathTMP() + "\\" + "qr.jpeg");
+            File tmpQrFile = new File("template\\qr.jpeg");
             qrCodeCreateUtil.createQrCode(new FileOutputStream(tmpQrFile),
                     contents,
                     170,
                     "JPEG");
             qrCodeCreateUtil.readQrCode(new FileInputStream(tmpQrFile));
-            IImageProvider qr = new FileImageProvider(new File(propertyApp.get().getPathTMP() + "\\" + "qr.jpeg"), true);
+            IImageProvider qr = new FileImageProvider(new File( "template\\qr.jpeg"), true);
             IContext context = report.createContext();
 
             //оригинальные поля
@@ -159,7 +159,6 @@ public class CreateDocFromTemplate {
             String appstr = "false";
             String endapp = "";
             if(!apps.isEmpty()) {
-
                 endapp = pickPhrase(apps.size(), "ий", "ие", "ия");
                 for(ApplicationDoc app : apps) {
                     appstr = app.getAppName() + "." + app.getAppExt() + ", " + app.getAppExe() +

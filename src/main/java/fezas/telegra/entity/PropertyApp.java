@@ -14,23 +14,22 @@ public class PropertyApp {
     private Long idUser;
     private String pathPDF;
     private String pathTLG;
-    private String pathTMP;
     private String pathDOC;
     private Integer minStringsOnNewPage;
     private String numberComputer;
+    private String service;
 
     public PropertyApp() {
     }
 
-    public PropertyApp(Long idUser, String pathPDF, String pathTLG, String pathTMP,
-                       String pathDOC, Integer minStringsOnNewPage, String numberComputer) {
+    public PropertyApp(Long idUser, String pathPDF, String pathTLG, String pathDOC, Integer minStringsOnNewPage, String numberComputer, String service) {
         this.idUser = idUser;
         this.pathPDF = pathPDF;
         this.pathTLG = pathTLG;
-        this.pathTMP = pathTMP;
         this.pathDOC = pathDOC;
         this.minStringsOnNewPage = minStringsOnNewPage;
         this.numberComputer = numberComputer;
+        this.service = service;
     }
 }
 

@@ -15,30 +15,29 @@
 
 <AnchorPane maxHeight="500.0" maxWidth="600.0" minHeight="285.0" minWidth="600.0" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.SettingController">
     <children>
-        <Button id="saveButton" fx:id="saveButton" layoutX="344.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveSetting" prefHeight="25.0" prefWidth="120.0" text="Сохранить" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="136.0" />
-        <Button fx:id="closeButton" cancelButton="true" layoutX="466.0" layoutY="454.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="120.0" text="Выход" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="10.0" />
-        <TabPane layoutX="14.0" layoutY="14.0" prefHeight="270.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE">
+        <Button id="saveButton" fx:id="saveButton" layoutX="344.0" layoutY="304.0" mnemonicParsing="false" onAction="#saveSetting" prefHeight="25.0" prefWidth="120.0" text="Сохранить" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="136.0" />
+        <Button fx:id="closeButton" cancelButton="true" layoutX="470.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="120.0" text="Выход" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="10.0" />
+        <TabPane layoutX="14.0" layoutY="14.0" prefHeight="283.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Система">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="580.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="257.0" prefWidth="580.0">
                             <children>
                                 <Label layoutX="14.0" layoutY="27.0" text="Каталог с телеграммами PDF:" />
                                 <Button fx:id="btnSelectCatWhithPdf" layoutX="507.0" layoutY="23.0" mnemonicParsing="false" onAction="#selectCatWhithPdf" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 0 3 3 0;" text="Выбрать" />
                                 <Button fx:id="btnSelectCatWhithTlg" layoutX="507.0" layoutY="56.0" mnemonicParsing="false" onAction="#selectCatWhithTlg" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 0 3 3 0;" text="Выбрать" />
                                 <Label layoutX="14.0" layoutY="60.0" text="Каталог с телеграммами TLG:" />
-                                <Label layoutX="15.0" layoutY="160.0" text="Интервал создания резервной копии БД (часов)" />
-                                <TextField layoutX="291.0" layoutY="156.0" prefHeight="25.0" prefWidth="63.0" />
-                        <TextField fx:id="textFieldNumbComp" layoutX="116.0" layoutY="188.0" prefHeight="25.0" prefWidth="459.0" />
-                        <Label layoutX="16.0" layoutY="193.0" text="ФН №" />
+                                <Label layoutX="15.0" layoutY="125.0" text="Интервал создания резервной копии БД (часов)" />
+                                <TextField layoutX="291.0" layoutY="121.0" prefHeight="25.0" prefWidth="63.0" />
+                        <TextField fx:id="textFieldNumbComp" layoutX="116.0" layoutY="153.0" prefHeight="25.0" prefWidth="459.0" />
+                        <Label layoutX="16.0" layoutY="157.0" text="ФН №" />
                         <CustomTextField fx:id="textFieldSelectCatWhithPDF" layoutX="186.0" layoutY="23.0" prefHeight="25.0" prefWidth="322.0" style="-fx-background-radius: 3 0 0 3;" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="23.0" />
                         <CustomTextField fx:id="textFieldSelectCatWhithTLG" layoutX="186.0" layoutY="56.0" prefHeight="25.0" prefWidth="322.0" style="-fx-background-radius: 3 0 0 3;" />
-                        <Button fx:id="btnSelectCatWhithTmp" layoutX="508.0" layoutY="89.0" mnemonicParsing="false" onAction="#selectCatWhithTmp" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 0 3 3 0;" text="Выбрать" />
-                        <Label layoutX="15.0" layoutY="93.0" text="Каталог с шаблоном" />
-                        <CustomTextField fx:id="textFieldSelectCatWhithTMP" layoutX="187.0" layoutY="89.0" prefHeight="25.0" prefWidth="322.0" style="-fx-background-radius: 3 0 0 3;" />
-                        <Button fx:id="btnSelectCatWhithDoc" layoutX="509.0" layoutY="124.0" mnemonicParsing="false" onAction="#selectCatWhithDoc" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 0 3 3 0;" text="Выбрать" />
-                        <Label layoutX="16.0" layoutY="128.0" text="Каталог с DOC" />
-                        <CustomTextField fx:id="textFieldSelectCatWhithDOC" layoutX="188.0" layoutY="124.0" prefHeight="25.0" prefWidth="322.0" style="-fx-background-radius: 3 0 0 3;" />
+                        <Button fx:id="btnSelectCatWhithDoc" layoutX="507.0" layoutY="89.0" mnemonicParsing="false" onAction="#selectCatWhithDoc" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 0 3 3 0;" text="Выбрать" />
+                        <Label layoutX="16.0" layoutY="93.0" text="Каталог с DOC" />
+                        <CustomTextField fx:id="textFieldSelectCatWhithDOC" layoutX="186.0" layoutY="89.0" prefHeight="25.0" prefWidth="322.0" style="-fx-background-radius: 3 0 0 3;" />
+                        <TextField fx:id="textFieldService" layoutX="116.0" layoutY="186.0" prefHeight="25.0" prefWidth="459.0" />
+                        <Label layoutX="16.0" layoutY="189.0" text="Подразделение" />
                             </children>
                         </AnchorPane>
                     </content>

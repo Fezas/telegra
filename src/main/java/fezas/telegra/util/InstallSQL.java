@@ -327,23 +327,23 @@ public class InstallSQL {
                 ID_USER                 LONG                  not null,
                 PATH_PDF                VARCHAR(120),
                 PATH_TLG                VARCHAR(120),
-                PATH_TMP                VARCHAR(120),
                 PATH_DOC                VARCHAR(120),
                 MIN_STRINGS_ON_NEW_PAGE INT         default 5 not null,
                 NUMBER_COMPUTER         VARCHAR(20) default STRINGDECODE('\\u042d\\u0412\\u041c00-000'),
+                SERVICE                 VARCHAR(200),                
                 constraint PROPERTY_PK
                     primary key (ID_USER)
             );
 
             comment on table PROPERTY is 'Таблица настроек программы';
 
-            comment on column PROPERTY.PATH_TMP is 'Путь к шаблону';
+            comment on column PROPERTY.SERVICE is 'Подразделение, отдел за которым закреплено РМ';
 
             comment on column PROPERTY.MIN_STRINGS_ON_NEW_PAGE is 'минимальное количество строк на новой странице';
 
             comment on column PROPERTY.NUMBER_COMPUTER is 'Номер текущей машины';
 
-            INSERT INTO PUBLIC.PROPERTY (ID_USER, PATH_PDF, PATH_TLG, PATH_TMP, MIN_STRINGS_ON_NEW_PAGE, NUMBER_COMPUTER) VALUES (1, 'C:\\Users\\Fezas\\PDF', 'C:\\Users\\Fezas\\TLG', 'C:\\Users\\Fezas', 5, 'ЭВМ00-000');
+            INSERT INTO PUBLIC.PROPERTY (ID_USER, PATH_PDF, PATH_TLG, PATH_DOC, MIN_STRINGS_ON_NEW_PAGE, NUMBER_COMPUTER, SERVICE) VALUES (1, 'C:\\Users\\Fezas\\PDF', 'C:\\Users\\Fezas\\TLG', 'C:\\Users\\Fezas', 5, 'ЭВМ00-000', '');
             
             create table USERS
             (

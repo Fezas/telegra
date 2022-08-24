@@ -32,8 +32,8 @@ public class SettingController implements Initializable {
     private PropertyAppDAO propertyAppDAO = PropertyAppDAO.getInstance();
     private static final Logger logger = LogManager.getLogger();
     @FXML    private Button btnSelectCatWhithTlg, btnSelectCatWhithPdf, btnSelectCatWhithTmp, btnSelectCatWhithDoc, closeButton, saveButton;
-    @FXML    private TextField textFieldNumbComp;
-    @FXML    private CustomTextField textFieldSelectCatWhithPDF, textFieldSelectCatWhithTLG, textFieldSelectCatWhithTMP, textFieldSelectCatWhithDOC;
+    @FXML    private TextField textFieldNumbComp, textFieldService;
+    @FXML    private CustomTextField textFieldSelectCatWhithPDF, textFieldSelectCatWhithTLG, textFieldSelectCatWhithDOC;
     @FXML    private Slider sliderMinStringsOnNewPage;
 
     private ValidationSupport validation = new ValidationSupport();
@@ -50,10 +50,10 @@ public class SettingController implements Initializable {
         property = getPropertyApp();
         property.setPathPDF(textFieldSelectCatWhithPDF.getText());
         property.setPathTLG(textFieldSelectCatWhithTLG.getText());
-        property.setPathTMP(textFieldSelectCatWhithTMP.getText());
         property.setPathDOC(textFieldSelectCatWhithDOC.getText());
         property.setNumberComputer(textFieldNumbComp.getText());
         property.setMinStringsOnNewPage((int) sliderMinStringsOnNewPage.getValue());
+        property.setService(textFieldService.getText());
         propertyAppDAO.update(property);
         logger.info("Настройки успешно изменены");
         Stage stage = (Stage) closeButton.getScene().getWindow();
@@ -81,11 +81,6 @@ public class SettingController implements Initializable {
     @FXML
     void selectCatWhithTlg(ActionEvent event) {
         selectCat(btnSelectCatWhithTlg, textFieldSelectCatWhithTLG, "Выбор каталога для TLG файлов");
-    }
-
-    @FXML
-    void selectCatWhithTmp(ActionEvent event) {
-        selectCat(btnSelectCatWhithTmp, textFieldSelectCatWhithTMP, "Выбор каталога для TMP файлов");
     }
 
     @FXML
@@ -123,11 +118,10 @@ public class SettingController implements Initializable {
                 getPropertyApp().setPathTLG(System.getProperty("user.home"));
             } else textFieldSelectCatWhithTLG.setText(pathTLG);
 
-            String pathTMP= getPropertyApp().getPathTMP();
-            if (pathTMP == null) {
-                textFieldSelectCatWhithTMP.setText(System.getProperty("user.home"));
-                getPropertyApp().setPathTMP(System.getProperty("user.home"));
-            } else textFieldSelectCatWhithTMP.setText(pathTMP);
+            String service= getPropertyApp().getService();
+            if (service == null) {
+                textFieldService.setText("");
+            } else textFieldService.setText(service);
 
             String pathDOC= getPropertyApp().getPathDOC();
             if (pathDOC == null) {
