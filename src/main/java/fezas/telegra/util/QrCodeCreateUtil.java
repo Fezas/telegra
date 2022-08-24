@@ -28,6 +28,8 @@ import java.util.Hashtable;
  *
  */
 public class QrCodeCreateUtil {
+
+    private static final Logger logger = LogManager.getLogger();
     /**
      * Функция генерации изображений QR-кода, содержащих строковую информацию
      *
@@ -37,8 +39,8 @@ public class QrCodeCreateUtil {
      * @param imageFormat формат QR-кода
      * @throws WriterException
      * @throws IOException
+     * @return true при успешной записи изображения QR-кода
      */
-    private static final Logger logger = LogManager.getLogger();
     public boolean createQrCode(OutputStream outputStream, String content, int qrCodeSize, String imageFormat) throws WriterException, IOException{
         // Установить уровень исправления ошибок QR-кода MAP
         Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
