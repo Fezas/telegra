@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-")2021. Stepantsov P.V.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0em;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1em;
+}
+table {
+    font-size: 12pt;
+    line-height: 1em;
+    padding: 0;
+}
+td>p {
+    line-height: 1em;
+    text-indent: 0cm;
+}
+hr {
+    border: 0;
+    background-color: #000000;
+    height: 1px;
+}

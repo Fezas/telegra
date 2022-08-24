@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Title</title><script src="../js/ckeditor/build/ckeditor.js"></script>
+</head>
+<body>
+<div id="editor"></div>
+<script>
+    let editor;
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( newEditor => {
+            editor = newEditor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    function setDataHtml(data){
+        editor.setData(data);
+    }
+    function getDataHtml(){
+        return editor.getData();
+    }
+    setTimeout(function() {
+        alert('variables:ready');
+    });
+</script>
+</body>
+</html>

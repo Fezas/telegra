@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.LoginController">
+   <left>
+      <AnchorPane prefHeight="352.0" prefWidth="228.0" style="-fx-background-color: #00BFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="32.0" layoutY="25.0" text="TELEGRA" textFill="#f5fcf6">
+               <font>
+                  <Font name="GeoSlab703 Md BT Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="285.0" prefHeight="17.0" prefWidth="174.0" text="Программное обеспечение" textAlignment="CENTER">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="302.0" prefHeight="17.0" prefWidth="122.0" text="для узлов связи">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/telegra-white.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="319.0" prefHeight="17.0" prefWidth="164.0" text="с телеграфным обменом ">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="348.0" prefWidth="292.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="34.0" layoutY="47.0" text="Авторизация в системе" textAlignment="CENTER">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="124.0" text="Логин">
+               <font>
+                  <Font name="Monospaced Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="164.0" text="Пароль">
+               <font>
+                  <Font name="Monospaced Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" layoutX="82.0" layoutY="120.0" prefHeight="25.0" prefWidth="177.0" style="-fx-background-radius: 0;" />
+            <PasswordField fx:id="txtPassword" layoutX="82.0" layoutY="160.0" prefHeight="25.0" prefWidth="177.0" style="-fx-background-radius: 0;" />
+            <Button fx:id="btnLogin" layoutX="35.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnLoginAction" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 0;" text="Войти" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonClose" cancelButton="true" layoutX="35.0" layoutY="259.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 0;" text="Отмена" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

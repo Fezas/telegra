@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView id="tableSecParagraph" fx:id="tableSecParagraph" layoutX="10.0" layoutY="112.0" prefHeight="432.0" prefWidth="580.0" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <columns>
+                <TableColumn id="paragraphColumn" fx:id="paragraphColumn" maxWidth="137.0" minWidth="80.0" prefWidth="128.0" resizable="false" text="Пункт" />
+                <TableColumn id="contentColumn" fx:id="contentColumn" minWidth="500.0" prefWidth="-1.0" text="Содержание" />
+            </columns>
+        </TableView>
+        <Button fx:id="closeButton" cancelButton="true" layoutX="475.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="111.0" text="Выход" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="14.0" />
+        <TextField fx:id="inputParagraphId" layoutX="9.0" layoutY="478.0" maxHeight="25.0" maxWidth="98.0" minHeight="25.0" minWidth="98.0" prefHeight="25.0" prefWidth="98.0" promptText="пункт Перечня" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="9.0" />
+        <TextArea fx:id="inputParagraphText" layoutX="121.0" layoutY="477.0" minWidth="465.0" prefHeight="78.0" prefWidth="465.0" promptText="Требования пункта" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="10.0" />
+        <Label layoutX="9.0" layoutY="449.0" text="Добавление новой / Редактирование записи" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="9.0" />
+        <Separator layoutX="10.0" layoutY="467.0" prefHeight="4.0" prefWidth="580.0" AnchorPane.bottomAnchor="129.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+        <Button fx:id="saveButton" disable="true" layoutX="365.0" layoutY="565.0" mnemonicParsing="false" onAction="#saveParagraph" prefHeight="25.0" prefWidth="104.0" text="Сохранить" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="131.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2021. Stepantsov P.V. 
+  -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxWidth="1000.0" minWidth="1000.0" prefHeight="484.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.MainController">
+   <children>
+      <MenuBar minWidth="1000.0" prefHeight="25.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Телеграмма">
+            <items>
+              <MenuItem fx:id="newTlg" mnemonicParsing="false" onAction="#newTlg" text="Новая" />
+                  <MenuItem mnemonicParsing="false" text="Архив" />
+                  <MenuItem fx:id="state" mnemonicParsing="false" onAction="#stateOpen" text="Статистика" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Настройки">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#paragraph" text="Перечень №1203" />
+                  <MenuItem fx:id="secrecy" mnemonicParsing="false" onAction="#secrecy" text="Гриф секретности" />
+                  <MenuItem fx:id="address" mnemonicParsing="false" onAction="#address" text="Адреса" />
+                  <MenuItem fx:id="type" mnemonicParsing="false" onAction="#type" text="Типы" />
+                  <MenuItem fx:id="categoryEdit" mnemonicParsing="false" onAction="#categoryEdit" text="Срочность" />
+                  <MenuItem fx:id="supervisor" mnemonicParsing="false" onAction="#supervisor" text="Руководители" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Система">
+              <items>
+                  <MenuItem fx:id="template" mnemonicParsing="false" text="Шаблоны" />
+                  <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#settings" text="Настройки программы" />
+                  <MenuItem fx:id="usersItem" mnemonicParsing="false" onAction="#users" text="Исполнители" />
+                  <MenuItem mnemonicParsing="false" onAction="#logout" text="Сменить пользователя" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Справка">
+            <items>
+                  <MenuItem fx:id="help" mnemonicParsing="false" onAction="#help" text="Помощь" />
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="О программе" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView fx:id="tlgsTable" layoutX="10.0" layoutY="34.0" prefHeight="418.0" prefWidth="980.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="34.0">
+        <columns>
+            <TableColumn fx:id="tlgCheckColumn" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" />
+          <TableColumn fx:id="numbColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="№ тлг" />
+          <TableColumn fx:id="dateGreateColumn" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" resizable="false" text="Дата, время" />
+            <TableColumn fx:id="versionColumn" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Версия" />
+            <TableColumn fx:id="titleColumn" minWidth="210.0" prefWidth="210.0" text="Наименование" />
+            <TableColumn fx:id="secrecyColumn" maxWidth="88.0" minWidth="88.0" prefWidth="88.0" resizable="false" text="Гриф" />
+            <TableColumn fx:id="categoryColumn" maxWidth="80.0" minWidth="80.0" resizable="false" text="Срочность" />
+            <TableColumn fx:id="supervisorColumn" maxWidth="296.0" minWidth="296.0" prefWidth="296.0" resizable="false" text="Кем подписана ТЛГ" />
+        </columns>
+      </TableView>
+      <Label layoutX="10.0" layoutY="462.0" text="Действующий исполнитель:" />
+      <Label fx:id="labelOperator" layoutX="174.0" layoutY="462.0" prefHeight="17.0" prefWidth="602.0" />
+   </children>
+</AnchorPane>

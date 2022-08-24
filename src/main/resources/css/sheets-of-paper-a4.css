@@ -1,0 +1,48 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	line-height: 1.5em;
+}
+#document {
+	padding: 0.5cm 0.5cm 0.5cm 0.5cm;
+}
+#page {
+	width: 17.3cm;
+}
+span.text-small {
+	font-size: 10pt !important;
+	line-height: 1em !important;
+}
+p,.text-tlg,.tlg-text {
+	margin: 0;
+	text-indent: 1.25cm;
+	text-align:justify;
+}
+table {
+	width: 100%;
+	font-size: 14pt;
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 1.5em;
+}
+td, tr {
+	padding:0;
+}
+tr {
+	height: 28pt;
+}
+figure {
+	margin: auto;
+}
+td>p {
+	line-height: 1.5em;
+	text-indent: 0cm;
+}
+hr {
+	border: 0;
+	background-color: #000000;
+	height: 1px;
+	margin: 13px 0;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="411.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView id="tableSecParagraph" fx:id="tableSecParagraph" layoutX="10.0" layoutY="112.0" prefHeight="350.0" prefWidth="580.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <columns>
+            <TableColumn fx:id="paragraphCheckColumn" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
+                <TableColumn id="paragraphColumn" fx:id="paragraphColumn" maxWidth="137.0" minWidth="80.0" prefWidth="128.0" resizable="false" text="Пункт" />
+                <TableColumn id="contentColumn" fx:id="contentColumn" minWidth="500.0" prefWidth="-1.0" text="Содержание" />
+            </columns>
+        </TableView>
+        <Button fx:id="closeButton" cancelButton="true" layoutX="479.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="111.0" text="Выход" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="addParagraphChoiceButton" layoutX="319.0" layoutY="374.0" mnemonicParsing="false" onAction="#addParagraphChoice" prefHeight="25.0" prefWidth="154.0" text="Добавить в приложение" />
+    </children>
+</AnchorPane>

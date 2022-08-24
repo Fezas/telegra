@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutY="89.0" prefHeight="679.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Настройки">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="selectCategory" layoutX="101.0" layoutY="17.0" prefHeight="25.0" prefWidth="190.0" />
+                        <Label layoutX="30.0" layoutY="21.0" text="Срочность" AnchorPane.leftAnchor="30.0" />
+                        <ComboBox fx:id="selectSecrecy" layoutX="424.0" layoutY="17.0" prefHeight="25.0" prefWidth="190.0" />
+                        <Label layoutX="313.0" layoutY="21.0" text="Гриф секретности" AnchorPane.leftAnchor="313.0" />
+                        <ChoiceBox fx:id="selectSupervisor" layoutX="116.0" layoutY="376.0" prefHeight="25.0" prefWidth="654.0" AnchorPane.leftAnchor="116.0" />
+                        <CheckBox fx:id="checkBoxRespect" layoutX="30.0" layoutY="422.0" mnemonicParsing="false" text="Добавить уважительное обращение" AnchorPane.leftAnchor="30.0" />
+                        <TableView id="tableSecParagraph" fx:id="tableSecParagraph" layoutX="30.0" layoutY="56.0" prefHeight="171.0" prefWidth="743.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                           <columns>
+                              <TableColumn fx:id="paragraphCheckColumn" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" />
+                              <TableColumn id="paragraphColumn" fx:id="paragraphColumn" maxWidth="137.0" minWidth="60.0" prefWidth="60.0" resizable="false" text="Пункт" />
+                              <TableColumn id="contentColumn" fx:id="contentColumn" minWidth="500.0" prefWidth="654.0" resizable="false" text="Содержание" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="tableType" layoutX="30.0" layoutY="238.0" prefHeight="131.0" prefWidth="743.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                           <columns>
+                              <TableColumn fx:id="typeCheckColumn" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" />
+                              <TableColumn fx:id="typeColumn" minWidth="90.0" prefWidth="213.0" resizable="false" text="Тип телеграммы" />
+                              <TableColumn fx:id="typeDescColumn" minWidth="272.0" prefWidth="501.0" resizable="false" text="Описание" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="30.0" layoutY="380.0" text="Руководитель" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Адреса">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="selectAll" layoutX="15.0" layoutY="28.0" mnemonicParsing="false" text="Выбрать все записи" />
+                        <TableView fx:id="tableAddress" layoutX="9.0" layoutY="57.0" prefHeight="631.0" prefWidth="780.0">
+                           <columns>
+                              <TableColumn fx:id="addressCheckColumn" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" />
+                              <TableColumn fx:id="addressCallsignColumn" maxWidth="90.0" minWidth="95.0" prefWidth="95.0" resizable="false" text="Позывной" />
+                              <TableColumn fx:id="addressColumn" minWidth="208.0" prefWidth="288.0" text="Адрес" />
+                              <TableColumn fx:id="addressPersonColumn" maxWidth="332.0" minWidth="129.0" prefWidth="182.0" text="Адресат" />
+                              <TableColumn fx:id="addressPersonRespectColumn" prefWidth="189.0" text="Для обращения" />
+                           </columns>
+                        </TableView>
+                        <Button id="saveButton" fx:id="btnAddressBook" layoutX="668.0" layoutY="699.0" mnemonicParsing="false" onAction="#actionAddressBook" prefHeight="25.0" prefWidth="120.0" text="Адресная книга" />
+                        <Button id="saveButton" fx:id="btnAddressBook1" layoutX="663.0" layoutY="19.0" mnemonicParsing="false" onAction="#actionAddressBook" prefHeight="25.0" prefWidth="120.0" text="Адресная книга" />
+                        <Button layoutX="525.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Обновить" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Текст телеграммы">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <WebView fx:id="webTlg" layoutX="12.0" layoutY="12.0" prefHeight="677.0" prefWidth="774.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="22.0" layoutY="18.0" text="Заголовок">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleTlg" layoutX="106.0" layoutY="14.0" prefHeight="25.0" prefWidth="501.0" />
+      <Button id="saveButton" fx:id="saveButton" disable="true" layoutX="666.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveTlg" prefWidth="120.0" text="Сохранить" />
+      <Button fx:id="btnApp" layoutX="666.0" layoutY="52.0" mnemonicParsing="false" onAction="#appView" prefHeight="25.0" prefWidth="120.0" text="Приложения" />
+   </children>
+</AnchorPane>

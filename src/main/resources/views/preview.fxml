@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2021. Stepantsov P.V. 
+  -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane minHeight="800.0" minWidth="688.0" prefHeight="800.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.PreviewController">
+   <children>
+      <WebView id="web" fx:id="web" layoutX="12.0" layoutY="11.0" prefHeight="750.0" prefWidth="699.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Button fx:id="closeButton" layoutX="856.0" layoutY="761.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="130.0" text="Выход" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="166.0" layoutY="765.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Печать" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="420.0" />
+      <Button fx:id="btnCreatePDF" layoutX="303.0" layoutY="765.0" mnemonicParsing="false" onAction="#actionCreatePDF" prefHeight="25.0" prefWidth="130.0" text="Сформировать PDF" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="283.0" />
+      <Button fx:id="btnCreateTLG" layoutX="440.0" layoutY="765.0" mnemonicParsing="false" onAction="#actionCreateTLG" prefHeight="25.0" prefWidth="130.0" text="Сформировать TLG" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="146.0" />
+      <Button fx:id="btnCreateDOC" layoutX="41.0" layoutY="765.0" mnemonicParsing="false" onAction="#createDOC" text="Button" />
+   </children>
+</AnchorPane>

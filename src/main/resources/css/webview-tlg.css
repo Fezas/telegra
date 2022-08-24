@@ -1,0 +1,23 @@
+html, body {
+	margin: 0;
+	padding: 1em;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	line-height: 1.5em;
+}
+
+.page {
+	margin: 0cm auto;
+	background: #fff;
+	outline: 0;
+}
+.text-small {
+	font-size: 10pt;
+	line-height: 1em !important;
+}
+p,.tlg-text {
+	margin: 0;
+
+	text-indent: 1.25cm;
+	text-align:justify;
+}

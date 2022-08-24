@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="saveButton" fx:id="saveButton" disable="true" layoutX="663.0" layoutY="182.0" mnemonicParsing="false" onAction="#addApp" prefWidth="120.0" text="Добавить" />
+      <Button fx:id="btnSelectFile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionSelectFile" prefHeight="25.0" prefWidth="322.0" text="Выбрать файл приложения" AnchorPane.leftAnchor="14.0" />
+      <TableView fx:id="tableApp" layoutX="16.0" layoutY="226.0" prefHeight="277.0" prefWidth="769.0">
+        <columns>
+            <TableColumn fx:id="colAppCheck" prefWidth="22.0" />
+          <TableColumn fx:id="colAppName" prefWidth="155.0" text="Имя" />
+          <TableColumn fx:id="colAppExt" prefWidth="89.0" text="Расширение" />
+            <TableColumn fx:id="colAppSize" prefWidth="81.0" text="Размер, б" />
+            <TableColumn fx:id="colAppSec" prefWidth="69.0" text="Гриф" />
+            <TableColumn fx:id="colAppNumb" prefWidth="79.0" text="Номер" />
+            <TableColumn fx:id="colAppExe" prefWidth="273.0" text="Программа" />
+        </columns>
+      </TableView>
+      <TextField fx:id="textfieldApplicationDocName" layoutX="90.0" layoutY="60.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="90.0" />
+      <Label layoutX="14.0" layoutY="64.0" text="Имя файла" AnchorPane.leftAnchor="14.0" />
+      <Label layoutX="14.0" layoutY="102.0" text="Расширение" AnchorPane.leftAnchor="14.0" />
+      <TextField fx:id="textfiieldApplicationDocExtension" layoutX="90.0" layoutY="98.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="90.0" />
+      <TextField fx:id="textfieldApplicationDocSize" layoutX="90.0" layoutY="136.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="90.0" />
+      <Label layoutX="14.0" layoutY="140.0" text="Размер, байт" AnchorPane.leftAnchor="14.0" />
+      <ComboBox fx:id="selectSecrecyApp" layoutX="538.0" layoutY="136.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="538.0" />
+      <Label layoutX="462.0" layoutY="140.0" text="Гриф" AnchorPane.leftAnchor="462.0" />
+      <TextField fx:id="textfieldAppNumb" layoutX="538.0" layoutY="60.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="538.0" />
+      <Label layoutX="462.0" layoutY="63.0" text="рег/номер" AnchorPane.leftAnchor="462.0" />
+      <TextField fx:id="textfieldAppExe" layoutX="538.0" layoutY="98.0" prefHeight="25.0" prefWidth="246.0" AnchorPane.leftAnchor="538.0" />
+      <Label layoutX="462.0" layoutY="102.0" text="Программа" AnchorPane.leftAnchor="462.0" />
+      <Button fx:id="choiceAppParagraph" layoutX="462.0" layoutY="14.0" mnemonicParsing="false" onAction="#choiceAppParagraph" prefHeight="25.0" prefWidth="322.0" text="Выберите пункты перечня" AnchorPane.leftAnchor="462.0" />
+      <Button id="saveButton" fx:id="addButton" layoutX="538.0" layoutY="182.0" mnemonicParsing="false" onAction="#clearForm" prefWidth="120.0" text="Новое" />
+   </children>
+</AnchorPane>

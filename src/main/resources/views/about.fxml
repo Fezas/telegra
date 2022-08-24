@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2021. Stepantsov P.V.
+  -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #00BFFF;">
+         <children>
+            <ImageView fitHeight="113.0" fitWidth="90.0" layoutX="14.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/telegra-white.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="133.0" layoutY="16.0" text="TELEGRA" textFill="#f5fcf6">
+               <font>
+                  <Font name="GeoSlab703 Md BT Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="70.0" prefHeight="19.0" prefWidth="260.0" text="Программа оптимизированного" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="89.0" prefHeight="17.0" prefWidth="230.0" text="создания телеграмм" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="115.0" prefHeight="17.0" prefWidth="230.0" text="Версия 0.3b" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="143.0" prefHeight="17.0" prefWidth="230.0" text="Автор Степанцов П.В." textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
