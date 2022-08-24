@@ -29,7 +29,8 @@ import java.util.Hashtable;
  */
 public class QrCodeCreateUtil {
     /**
-     * Генерация изображений QR-кода, содержащих строковую информацию
+     * Функция генерации изображений QR-кода, содержащих строковую информацию
+     *
      * @param outputStream Путь к выходному потоку файла
      * @param content QR-код, несущий информацию
      * @param qrCodeSize Размер изображения QR-кода
@@ -68,7 +69,9 @@ public class QrCodeCreateUtil {
     }
 
     /**
-     * Прочитайте QR-код и выведите несущую информацию
+     * Функция чтения QR-код и вывода несущей информации
+     *
+     * @param inputStream поток ввода изображения
      */
     public void readQrCode(InputStream inputStream) throws IOException{
         // Получить строковую информацию из входного потока
