@@ -106,11 +106,13 @@ public class CreateDocFromTemplate {
             String contents = tlg.getTitle() + "/" + formatedAddress + "/" +
                     tlg.getSupervisor().getPosition() + " " + tlg.getSupervisor().getLastname() + "/" +
                     tlg.getTlgDateGreate();
+
+
             QrCodeCreateUtil qrCodeCreateUtil = new QrCodeCreateUtil();
             File tmpQrFile = new File("template\\qr.jpeg");
             qrCodeCreateUtil.createQrCode(new FileOutputStream(tmpQrFile),
                     contents,
-                    170,
+                    151,
                     "JPEG");
             qrCodeCreateUtil.readQrCode(new FileInputStream(tmpQrFile));
             IImageProvider qr = new FileImageProvider(new File( "template\\qr.jpeg"), true);

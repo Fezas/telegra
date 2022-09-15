@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.controlsfx.control.textfield.CustomTextField;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 import org.controlsfx.validation.ValidationSupport;
 
 import java.io.File;
@@ -31,7 +33,9 @@ import java.util.regex.Pattern;
 public class SettingController implements Initializable {
     private PropertyAppDAO propertyAppDAO = PropertyAppDAO.getInstance();
     private static final Logger logger = LogManager.getLogger();
-    @FXML    private Button btnSelectCatWhithTlg, btnSelectCatWhithPdf, btnSelectCatWhithTmp, btnSelectCatWhithDoc, closeButton, saveButton;
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
+
+    @FXML    private Button btnSelectCatWhithTlg, btnSelectCatWhithPdf, btnSelectCatWhithTmp, btnSelectCatWhithDoc, closeButton, btnSave;
     @FXML    private TextField textFieldNumbComp, textFieldService;
     @FXML    private CustomTextField textFieldSelectCatWhithPDF, textFieldSelectCatWhithTLG, textFieldSelectCatWhithDOC;
     @FXML    private Slider sliderMinStringsOnNewPage;
@@ -104,6 +108,8 @@ public class SettingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnSave.setGraphic(fontAwesome.create("SAVE"));
+        //btnSelectCatWhithTlg.setGraphic(fontAwesome.create('\uf07c'));
         try {
             //проверка существует ли еще путь
             String pathPDF = getPropertyApp().getPathPDF();
@@ -153,7 +159,7 @@ public class SettingController implements Initializable {
                 }
             });
 
-            saveButton.disableProperty().bind(
+            btnSave.disableProperty().bind(
                     Bindings.isEmpty(textFieldNumbComp.textProperty())
                             .or(Bindings.isEmpty(textFieldSelectCatWhithTLG.textProperty()))
                             .or(Bindings.isEmpty(textFieldSelectCatWhithPDF.textProperty()))

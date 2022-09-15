@@ -23,6 +23,8 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.net.URL;
 import java.util.Optional;
@@ -35,22 +37,15 @@ public class ParagraphController implements Initializable  {
     private static ObservableList<ParagraphEntity> items = FXCollections.observableArrayList();
     private TelegrammController telegrammController = TelegrammController.getInstance();
     private MainController mainController = MainController.getInstance();
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
     private static final Logger logger = LogManager.getLogger();
     private ParagraphEntity updateParagraphs;
-    @FXML
-    private Button saveButton, closeButton, buttonAddNewParagraph;
-    @FXML
-    private TableView<ParagraphEntity> tableSecParagraph;
-    @FXML
-    private TableColumn<ParagraphEntity, Integer> paragraphColumn;
-    @FXML
-    private TableColumn<ParagraphEntity, String> contentColumn;
-    @FXML
-    private TextField inputParagraphId;
-    @FXML
-    private TextArea inputParagraphText;
-    @FXML
-    private Button addParagraphChoiceButton;
+    @FXML    private Button btnSave, closeButton;
+    @FXML    private TableView<ParagraphEntity> tableSecParagraph;
+    @FXML    private TableColumn<ParagraphEntity, Integer> paragraphColumn;
+    @FXML    private TableColumn<ParagraphEntity, String> contentColumn;
+    @FXML    private TextField inputParagraphId;
+    @FXML    private TextArea inputParagraphText;
 
     private Boolean flagNew;
     public ParagraphController(Boolean flagNew) {
@@ -138,12 +133,13 @@ public class ParagraphController implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnSave.setGraphic(fontAwesome.create("SAVE"));
         initData();
         ValidatorTelegra validatorTelegra = new ValidatorTelegra();
         validatorTelegra.textFieldLenght(inputParagraphId,4);
         validatorTelegra.textAreaLenght(inputParagraphText,600);
         //кнопка сохранить активна если все поля заполнены
-        saveButton.disableProperty().bind(
+        btnSave.disableProperty().bind(
                 Bindings.isEmpty(inputParagraphId.textProperty())
                         .or(Bindings.isEmpty(inputParagraphText.textProperty()))
         );

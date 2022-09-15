@@ -10,8 +10,6 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
-import com.google.zxing.qrcode.QRCodeWriter;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +19,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Hashtable;
 
 /**
@@ -43,12 +42,11 @@ public class QrCodeCreateUtil {
      */
     public boolean createQrCode(OutputStream outputStream, String content, int qrCodeSize, String imageFormat) throws WriterException, IOException{
         // Установить уровень исправления ошибок QR-кода MAP
-        Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
-        hintMap.put (EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L); // Уровень исправления ошибок
+        //Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
+        //hintMap.put (EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L); // Уровень исправления ошибок
         Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
-        hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+        hints.put(EncodeHintType.CHARACTER_SET, StandardCharsets.UTF_8);
         AztecWriter aztecWriter = new AztecWriter();
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
         // Создание QR-строки битовой матрицы (битовая матрица)
         BitMatrix byteMatrix = aztecWriter.encode(content, BarcodeFormat.AZTEC, qrCodeSize, qrCodeSize, hints);
         // Сделать BufferedImage разграничить QRCode (matrixWidth это пиксель строки QR-кода)

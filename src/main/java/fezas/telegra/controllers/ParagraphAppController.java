@@ -17,6 +17,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,24 +27,18 @@ import java.util.ResourceBundle;
 
 public class ParagraphAppController implements Initializable  {
 
-
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
     private ObservableList<ParagraphEntity> usersData = FXCollections.observableArrayList();
     private static ObservableList<ParagraphEntity> items = FXCollections.observableArrayList();
     private AppController appController = AppController.getInstance();
     private MainController mainController = MainController.getInstance();
     private static final Logger logger = LogManager.getLogger();
-    @FXML
-    private Button closeButton, buttonAddNewParagraph;
-    @FXML
-    private TableView<ParagraphEntity> tableSecParagraph;
-    @FXML
-    private TableColumn<ParagraphEntity, Integer> paragraphColumn;
-    @FXML
-    private TableColumn<ParagraphEntity, String> contentColumn;
-    @FXML
-    private TableColumn<ParagraphEntity, String> paragraphCheckColumn;
-    @FXML
-    private Button addParagraphChoiceButton;
+    @FXML    private Button closeButton, buttonAddNewParagraph;
+    @FXML    private TableView<ParagraphEntity> tableSecParagraph;
+    @FXML    private TableColumn<ParagraphEntity, Integer> paragraphColumn;
+    @FXML    private TableColumn<ParagraphEntity, String> contentColumn;
+    @FXML    private TableColumn<ParagraphEntity, String> paragraphCheckColumn;
+    @FXML    private Button btnAddParagraph;
 
     private List<ParagraphEntity> currentParList;
 
@@ -72,7 +68,7 @@ public class ParagraphAppController implements Initializable  {
         }
         if (!appController.ppApp.isEmpty()) {
             appController.choiceAppParagraph.setText(textParagraphButton.substring(0, textParagraphButton.length() - 2));
-            Stage stage = (Stage) addParagraphChoiceButton.getScene().getWindow();
+            Stage stage = (Stage) btnAddParagraph.getScene().getWindow();
             stage.close();
         } else {
             showAlertNotSelectedParagraph();
@@ -95,7 +91,7 @@ public class ParagraphAppController implements Initializable  {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initData();
         tableSecParagraph.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
+        btnAddParagraph.setGraphic(fontAwesome.create("PLUS"));
         contentColumn.setCellFactory(tc -> {
             TableCell<ParagraphEntity, String> cell = new TableCell<>();
             Text text = new Text();

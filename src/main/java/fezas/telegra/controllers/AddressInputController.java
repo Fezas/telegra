@@ -16,6 +16,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +25,7 @@ import java.util.ResourceBundle;
 public class AddressInputController implements Initializable {
     private Address addressItem;
     private static final Logger logger = LogManager.getLogger();
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
     @FXML    private Button saveButton, closeButton;
     @FXML    private TextField inputCallsign, inputAddress, inputAddressPerson, inputAddressPersonRespect;
 
@@ -64,6 +67,7 @@ public class AddressInputController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            saveButton.setGraphic(fontAwesome.create("SAVE"));
             //валидация полей на превышение и первый пробел
             ValidatorTelegra validatorTelegra = new ValidatorTelegra();
             validatorTelegra.textFieldLenght(inputCallsign,20);

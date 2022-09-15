@@ -22,6 +22,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.net.URL;
 import java.util.Optional;
@@ -32,6 +34,7 @@ public class AddressesController implements Initializable {
     private static final Logger logger = LogManager.getLogger();
     private Address selectAddress;
     private static AddressesController instance;
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
 
     @FXML    private Button closeButton, btnAddAddress;
     @FXML    private TableColumn<Address, String> addressCallsignColumn;
@@ -105,6 +108,7 @@ public class AddressesController implements Initializable {
             initData();
             tableAddress.setEditable(true);
             tableAddress.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            btnAddAddress.setGraphic(fontAwesome.create("PLUS"));
             tableAddress.setRowFactory(
                     tableView -> {
                         //событие по двойному клику строки

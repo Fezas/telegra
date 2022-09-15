@@ -62,8 +62,7 @@
                            </columns>
                         </TableView>
                         <Button id="saveButton" fx:id="btnAddressBook" layoutX="668.0" layoutY="699.0" mnemonicParsing="false" onAction="#actionAddressBook" prefHeight="25.0" prefWidth="120.0" text="Адресная книга" />
-                        <Button id="saveButton" fx:id="btnAddressBook1" layoutX="663.0" layoutY="19.0" mnemonicParsing="false" onAction="#actionAddressBook" prefHeight="25.0" prefWidth="120.0" text="Адресная книга" />
-                        <Button layoutX="525.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Обновить" />
+                        <Button id="saveButton" fx:id="btnAddressBook" layoutX="668.0" layoutY="19.0" mnemonicParsing="false" onAction="#actionAddressBook" prefHeight="25.0" prefWidth="120.0" text="Адресная книга" />
                      </children>
                   </AnchorPane>
             </content>
@@ -85,7 +84,7 @@
          </font>
       </Label>
       <TextField fx:id="titleTlg" layoutX="106.0" layoutY="14.0" prefHeight="25.0" prefWidth="501.0" />
-      <Button id="saveButton" fx:id="saveButton" disable="true" layoutX="666.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveTlg" prefWidth="120.0" text="Сохранить" />
-      <Button fx:id="btnApp" layoutX="666.0" layoutY="52.0" mnemonicParsing="false" onAction="#appView" prefHeight="25.0" prefWidth="120.0" text="Приложения" />
+      <Button id="saveButton" fx:id="saveButton" disable="true" layoutX="667.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveTlg" prefWidth="120.0" text="Сохранить" />
+      <Button fx:id="btnApp" layoutX="667.0" layoutY="52.0" mnemonicParsing="false" onAction="#appView" prefHeight="25.0" prefWidth="120.0" text="Приложения" />
    </children>
 </AnchorPane>

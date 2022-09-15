@@ -4,6 +4,11 @@
 
 package fezas.telegra.controllers;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TmpAddress {
     private String call, name, pers, resp;
 
@@ -12,21 +17,5 @@ public class TmpAddress {
         this.name = name;
         this.pers = pers;
         this.resp = resp;
-    }
-
-    public String getCall() {
-        return call;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPers() {
-        return pers;
-    }
-
-    public String getResp() {
-        return resp;
     }
 }

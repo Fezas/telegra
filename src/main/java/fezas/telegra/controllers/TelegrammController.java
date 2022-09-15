@@ -30,6 +30,8 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.controlsfx.control.CheckComboBox;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
@@ -69,6 +71,8 @@ public class TelegrammController implements Initializable {
     private ApplicationDoc currentApplicationDoc = new ApplicationDoc();
     private ObservableList<Secrecy> secreciesApp = FXCollections.observableArrayList();
     private ValidationSupport validationSupport = new ValidationSupport();
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
+
     public static TelegrammController getInstance() {
         if (instance == null) {
             instance = new TelegrammController();
@@ -95,7 +99,7 @@ public class TelegrammController implements Initializable {
     @FXML    private WebView webViewInputTlgText;
     @FXML    private TextField titleTlg, textFieldTitle;
     @FXML    private Label countPages, countChar;
-    @FXML    private Button saveButton, addButton, closeButton, selectAddressButton;
+    @FXML    private Button saveButton, btnApp, closeButton, selectAddressButton, btnAddressBook;
     @FXML    public TextArea textTlg, choiceTypeText;
     @FXML    private CheckComboBox<Integer> checkParagraphs;
     @FXML    private CheckBox checkBoxRespect;
@@ -439,6 +443,9 @@ public class TelegrammController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnApp.setGraphic(fontAwesome.create("FILE"));
+        saveButton.setGraphic(fontAwesome.create("SAVE"));
+        btnAddressBook.setGraphic(fontAwesome.create("BOOK"));
         try {
             /*createEmptyValidator заменить на Regex*/
             validationSupport.registerValidator(titleTlg, Validator.createEmptyValidator("Заголовок не менее 5 знаков!"));

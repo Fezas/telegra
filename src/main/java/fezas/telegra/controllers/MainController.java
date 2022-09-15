@@ -14,11 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +33,7 @@ public class MainController implements Initializable {
     private static ObservableList<Telegramma> usersData = FXCollections.observableArrayList();
     private static Telegramma currentTlg = new Telegramma();
     private static final Logger logger = LogManager.getLogger();
+    private GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
 
     @FXML    private TableColumn<Telegramma, String> dateGreateColumn;
     @FXML    private TableColumn<Telegramma, String> numbColumn;
@@ -40,7 +44,15 @@ public class MainController implements Initializable {
     @FXML    private TableColumn<Telegramma, String> supervisorColumn;
     @FXML    private TableColumn<Telegramma, String> tlgCheckColumn;
     @FXML    private TableView<Telegramma> tlgsTable = new TableView<>();
-    @FXML    private MenuItem usersItem;
+    @FXML    private MenuItem menuItemAddress;
+    @FXML    private MenuItem menuItemCategory;
+    @FXML    private MenuItem menuItemParagraph;
+    @FXML    private MenuItem menuItemSecrecy;
+    @FXML    private MenuItem menuItemSupervisor;
+    @FXML    private MenuItem menuItemType;
+    @FXML    private MenuItem munuItemUsers;
+    @FXML    private Menu menuSetting;
+
     @FXML    private Label labelOperator;
     private static MainController instance;
     public static MainController getInstance() {
@@ -92,7 +104,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void categoryEdit(ActionEvent event) {
+    private void category(ActionEvent event) {
         createScene(event, "category.fxml", "Срочность", false);
     }
 
@@ -153,7 +165,6 @@ public class MainController implements Initializable {
         }
     }
 
-
     @FXML
     private void newTlg(ActionEvent event) {
         try {
@@ -199,8 +210,6 @@ public class MainController implements Initializable {
         }
     }
 
-
-
     public void setCurrentTlg(Telegramma telegramma){
         currentTlg = telegramma;
     }
@@ -211,11 +220,20 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        menuSetting.setGraphic(fontAwesome.create("GEAR").color(Color.BLUE));
+        //menuItemAddress.setGraphic(fontAwesome.create('\uf2bb').color(Color.BLACK));
+        //menuItemCategory.setGraphic(fontAwesome.create('\uf017').color(Color.BLACK));
+        //menuItemParagraph.setGraphic(fontAwesome.create('\uf292').color(Color.BLACK));
+        //menuItemSecrecy.setGraphic(fontAwesome.create('\uf09c').color(Color.BLACK));
+        //menuItemSupervisor.setGraphic(fontAwesome.create("USER_SECRET").color(Color.BLACK));
+        //menuItemType.setGraphic(fontAwesome.create('\uf02c').color(Color.BLACK));
+        munuItemUsers.setGraphic(fontAwesome.create("USERS").color(Color.BLACK));
+
         try {
             //меню пользователей только для админа
             if (UserLoginController.getInstance().getCurrentUser().getUserRole().equals("администратор")) {
-                usersItem.setVisible(true);
-            } else usersItem.setVisible(false);
+                munuItemUsers.setVisible(true);
+            } else munuItemUsers.setVisible(false);
 
             initData();
             tlgsTable.setEditable(true);
