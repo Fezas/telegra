@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2021. Stepantsov P.V. 
+  -->
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fezas.telegra.controllers.StatisticController">
+   <children>
+      <TableView fx:id="tableСharac" layoutX="16.0" layoutY="16.0" prefHeight="375.0" prefWidth="567.0">
+        <columns>
+          <TableColumn fx:id="columnСharacName" prefWidth="444.0" text="Характеристика" />
+          <TableColumn fx:id="columnСharacValue" prefWidth="122.0" text="Значение" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

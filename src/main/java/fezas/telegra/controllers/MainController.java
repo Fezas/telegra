@@ -120,7 +120,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void stateOpen(ActionEvent event) {
-        createScene(event, "state.fxml", "Статистика", false);
+        createScene(event, "statistic.fxml", "Статистика", false);
     }
 
     @FXML
